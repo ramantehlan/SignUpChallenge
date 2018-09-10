@@ -1,58 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>repl.it</title>
-<link href="index.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-<div class="content">
-<form>
-<div class="form-group">
-<span>Full Name (Optional)</span>
-<input type="text" id="username" />
-</div>
-<div class="form-group">
-<span>Email</span>
-<input type="text" id="username" />
-</div>
-<div class="form-group">
-<span>Username</span>
-<input type="text" id="username" />
-</div>
-<div class="form-group">
-<span>Password</span>
-<input type="password" id="password" />
-</div>
-<input type="submit" value="submit"/>
-</form>
-</div>
-<div class="intro">
-<div><p>Using this markup as a base, please improve the usability and polish of the
-sign-up form.</p>
-<p>This is meant to be a quick exercise, so please don't feel the need to
-spend more than an hour or so on it. Also, we are using native CSS and JS, but free to
-use any libraries you find necessary.</p>
-<p>You are in no way expected to do all of the following (and are not limited
-to these changes), but some ways you could improve the form include:</p>
-<ul>
-<li>Add a visual indicator to inform the user of the strength of their
-password</li>
-<li>Add client-side validation to the form</li>
-<li>Make the form more accessible to screen readers</li>
-<li>Add styling to the form to make it more visually appealing</li>
-<li>Right now the page refreshes on submit. Can you make it submit in the
-background and add a loading state?</li>
-</ul>
-<p>When you are done, please click <kbd>save</kbd> above and send us the
-link.</p>
-</div>
-</div>
-<script src="index.js"></script>
-</body>
-</html>
-index.js
+/*
+This script is for the sign up page,
+It will do following functions:
+	
+	- Indicate the strength of a password
+	- Validate the form client side
+	- Ajax to post the form, instead of reloading it.
+	- Add Loading State.
+
+[Note]
+
+I will use just one library, which is written by me.
+otherwise, I will strict to native JS, and won't be
+using libraries to do things.
+
+
+Creator:- Raman Tehlan <ramantehlan@gmail.com>
+Date Of Creation: 11-September-2017
+*/
+
+
 var signinUrl = 'https://private-47ed5-interviewapitest.apiary-mock.com/signin'
 function post(url, data, cb) {
 var xhr = new XMLHttpRequest()
