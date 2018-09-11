@@ -94,7 +94,15 @@ function hide(obj){
 function postResult(res){
 	// Console the result
 	console.log(res)
+	// Completed the step
 	complete()
+	// Hide error box
+	hide(errorBox)
+	// Hide password box
+	hide(passwordBox)
+
+	// show the success box
+	show(successBox)
 }
 
 // Function to call once function completed
