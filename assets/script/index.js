@@ -23,16 +23,28 @@ let signinUrl = form.action
 let errorBox = document.getElementById("errorBox")
 // Success box
 let successBox = document.getElementById("successBox")
+// Password box
+let passwordBox = document.getElementById("passwordBox")
 // All inputs
 let inputs = document.getElementsByTagName('input')
 // Cover 
 let cover = document.getElementById("cover")
 // Strings object
 let errorMessage = [
-	"Mandatory Fields",
-	"Email is invalid",
-	"user name is invalid"
+	"You can't leave the mandatory field empty.",
+	"Name is invalid! It can only have alphabets.",
+	"Email is invalid! Email should look like this:- abc@xyc.com",
+	"Username is invalid! Username can have alphabets, numbers and _ only.",
+	"Password should atleast have 8 characters."
 ]
+
+// To trigger the function one focus
+for (var i=0; i< inputs.length; i++){
+    inputs[i].onfocus = defaultForm
+}
+
+// To print suggestion on password type
+password.onfocus = passwordSuggestion
 
 //Function to post 
 function post(url, data, cb) {
@@ -93,11 +105,6 @@ function complete(){
 	// Enable the submit button
 	submitButton.removeAttribute('disabled')
 
-	// To trigger the function one focus
-	for (var i=0; i< inputs.length; i++){
-    	inputs[i].onfocus = defaultForm
-	}
-
 	// Hide loading cover
 	hide(cover)
 }
@@ -110,6 +117,8 @@ function defaultForm(){
 	hide(errorBox)
 	// Hide Success box
 	hide(successBox)
+	// Hide Password Suggestion
+	hide(passwordBox)
 }
 
 // To change content of a object
@@ -126,14 +135,19 @@ function validateEmail(email) {
 
 // To check alphabets only
 function validateAlpha(string){
-	var re = /^[a-z]+$/i
+	var re = /^[a-z ]+$/i
 	return re.test(string)
 }
 
 // To check user-name 
-function validateUnsername(username){
+function validateUsername(username){
 	var re = /^[a-z0-9_]+$/i
 	return re.test(username)
+}
+
+// To suggest password details
+function passwordSuggestion(){
+	show(passwordBox)
 }
 
 //Submit function
@@ -154,6 +168,9 @@ form.addEventListener("submit",function(e) {
 	let password = document.getElementById("password")
 
 
+
+
+
 		// To check form
 		if( isEmpty(email) || isEmpty(username) || isEmpty(password) ){
 				
@@ -171,15 +188,25 @@ form.addEventListener("submit",function(e) {
 				// To complete the process 
 				complete()
 
-		}else if(!validateAlpha(name.value)){
+		}else if(!validateAlpha(name.value) && !isEmpty(name)){
 			outline(name)
 			show(errorBox)
-			changeContent(errorBox, errorMessage[2])
+			changeContent(errorBox, errorMessage[1])
 			complete()
 		}else if(!validateEmail(email.value)){
 			outline(email)
 			show(errorBox)
-			changeContent(errorBox, errorMessage[1])
+			changeContent(errorBox, errorMessage[2])
+			complete()
+		}else if(!validateUsername(username.value)){
+			outline(username)
+			show(errorBox)
+			changeContent(errorBox, errorMessage[3])
+			complete()
+		}else if(password.value.length < 8){
+			outline(password)
+			show(errorBox)
+			changeContent(errorBox, errorMessage[4])
 			complete()
 		}else{
 			// Post the form	
