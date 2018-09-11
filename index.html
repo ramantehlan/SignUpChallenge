@@ -4,34 +4,60 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>SignUpChallenge</title>  
-    <link href="index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/style/index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+  	<div class="cover" id="cover">
+  			<div class="shadow loading">
+  				Submitting...
+  			</div>
+  	</div>
 
-    <div class="content">
 
-		<form>
+		<div class="logo">
+    		<img src="assets/imgs/udacity-logo.svg">
+    	</div>
+
+    <div class="shadow form">
+    	
+    	<div class="form-title">
+    		Sign up to get career ready!
+    	</div>
+
+    	<div class="box error-box" id="errorBox">
+    		Error
+    	</div>
+
+    	<div class="box success-box" id="successBox">
+    		Success
+    	</div>
+
+		<form id="form" method="post" action="https://private-47ed5-interviewapitest.apiary-mock.com/signin">
 			<div class="form-group">
-				<span>Full Name (Optional)</span>
-				<input type="name" id="name" />
+				<input type="name" id="name" placeholder="Full Name" />
 			</div>
 			<div class="form-group">
-				<span>Email</span>
-				<input type="email" id="email" />
+				<input type="user-email" id="email" placeholder="Email" />
 			</div>
 			<div class="form-group">
-				<span>Username</span>
-				<input type="username" id="username" />
+				<input type="username" id="username" placeholder="Username" />
 			</div>
 			<div class="form-group">
-				<span>Password</span>
-				<input type="password" id="password" />
+				<input type="password" id="password" placeholder="Password" />
 			</div>
-			<input type="submit" value="submit"/>
+			<div class="password-suggestion">
+				Password Strength: Week 
+				<Br><Br>
+				Something here
+			</div>
+
+			<div class="form-button">
+				<button type="submit" value="SIGN UP" id="submitButton" >SIGN UP</button>
+			</div>
 		</form>
 
 	</div>
 
-<script src="index.js"></script>
+<script src="assets/script/index.js"></script>
 </body>
 </html>
