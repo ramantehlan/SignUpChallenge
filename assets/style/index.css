@@ -13,24 +13,6 @@ IMPORTS
 
 /*
 STYLE
-
-// Fundamentals
-$primary-color: #5663ef;
-$primary-light-color: #848df3;
-$primary-dark-color: #2f3683;
-$secondary-color: #183446;
-$secondary-light-color: #6c7d89;
-$secondary-dark-color: #0e1d27;
-
-// Minor
-$background-color: #DAE0E6;
-$surface-color: #ffffff;
-$error-color: #b71c1c;
-$success-color: #48a31f;
-$success-light-color: #59c926;
-$success-dark-color: #387f18;
-$input-background: #f6f7f8;
-
 */
 
 *{
@@ -50,7 +32,7 @@ html, body{
 	position:fixed;
 	top:0%;
 	left:0%;
-	background-color:rgba(0,0,0,0.4);
+	background-color:rgba(0,0,0,0.6);
 	display:none;
 }
 

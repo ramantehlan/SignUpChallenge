@@ -2,11 +2,11 @@
 This script is for the sign up page,
 It will do following functions:
 	
-	- Indicate the strength of a password
-	- Validate the form client side
-	- Ajax to post the form, instead of reloading it.
-	- Add Loading State.
-	- Will disable the button once request is sent.
+	- Indicate the strength of a password [done]
+	- Validate the form client side [done]
+	- Ajax to post the form, instead of reloading it. [done]
+	- Add Loading State. [done]
+	- Will disable the button once request is sent. [done]
 
 Creator:- Raman Tehlan <ramantehlan@gmail.com>
 Date Of Creation: 11-September-2017
@@ -44,7 +44,7 @@ for (var i=0; i< inputs.length; i++){
 }
 
 // To print suggestion on password type
-password.onfocus = passwordSuggestion
+password.oninput = passwordSuggestion
 
 //Function to post 
 function post(url, data, cb) {
@@ -148,6 +148,56 @@ function validateUsername(username){
 // To suggest password details
 function passwordSuggestion(){
 	show(passwordBox)
+
+	let password = document.getElementById("password")
+	let passwordStrength = document.getElementById("passwordStrength")
+	let score = scorePassword(password.value)
+    let s = "Weak"
+
+    if(score > 60){
+        s = "Strong"
+        passwordBox.setAttribute("style","display:block;color:rgb(80,230,80); border-color:rgba(140,240,140,0.6)");
+    }
+    else if(score <= 60 && score > 30){
+        s = "Good"
+        passwordBox.setAttribute("style","display:block;color:rgb(80,130,160); border-color:rgba(140,240,240,0.8)");
+    }
+    else{
+        s = "Weak"
+        passwordBox.setAttribute("style","display:block;color:rgb(230,80,80); border-color:rgba(240,140,140,0.6)");
+    }
+
+    changeContent(passwordStrength, s)
+    
+}
+
+function scorePassword(pass) {
+    var score = 0;
+    if (!pass)
+        return score;
+
+    // award every unique letter until 5 repetitions
+    var letters = new Object();
+    for (var i=0; i<pass.length; i++) {
+        letters[pass[i]] = (letters[pass[i]] || 0) + 1;
+        score += 5.0 / letters[pass[i]];
+    }
+
+    // bonus points for mixing it up
+    var variations = {
+        digits: /\d/.test(pass),
+        lower: /[a-z]/.test(pass),
+        upper: /[A-Z]/.test(pass),
+        nonWords: /\W/.test(pass),
+    }
+
+    variationCount = 0;
+    for (var check in variations) {
+        variationCount += (variations[check] == true) ? 1 : 0;
+    }
+    score += (variationCount - 1) * 10;
+
+    return parseInt(score);
 }
 
 //Submit function
