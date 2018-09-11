@@ -1,0 +1,182 @@
+/*
+This is to style the sign up page
+
+Creator: Raman Tehlan <ramantehlan@gmail.com>
+Date Of Creation: 11-September-2017
+*/
+
+/*
+IMPORTS
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500');
+
+/*
+STYLE
+
+// Fundamentals
+$primary-color: #5663ef;
+$primary-light-color: #848df3;
+$primary-dark-color: #2f3683;
+$secondary-color: #183446;
+$secondary-light-color: #6c7d89;
+$secondary-dark-color: #0e1d27;
+
+// Minor
+$background-color: #DAE0E6;
+$surface-color: #ffffff;
+$error-color: #b71c1c;
+$success-color: #48a31f;
+$success-light-color: #59c926;
+$success-dark-color: #387f18;
+$input-background: #f6f7f8;
+
+*/
+
+*{
+    font-family: 'Roboto', sans-serif;  
+    font-weight:400; 
+}
+
+html, body{
+	margin:0px;
+	padding:0px;
+	background:#F4F4EF /*#E1E2EF*/;
+}
+
+.cover{
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0%;
+	left:0%;
+	background-color:rgba(0,0,0,0.4);
+	display:none;
+}
+
+.loading{
+	width:140px;
+	height:140px;
+	line-height:140px;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-top:-70px;
+	margin-left:-70px;
+	background-color:white;
+	text-align:center;
+	border-radius:3px;
+}
+
+.shadow{
+	box-shadow:0px 0px 4px 3px rgb(0,0,0,0.03);
+}
+
+.logo{
+	width:150px;
+	margin:0px auto;
+	margin-top:40px;
+}
+
+.logo img{
+	width:100%;
+}
+
+.form {
+	max-width:280px;
+	padding:30px;
+	margin:0px auto;
+	margin-top:35px;
+	margin-bottom:50px;
+	background-color:white;
+	border-radius:3px;
+}
+
+.form-title{
+	text-align:center;
+	font-family: 'Roboto', sans-serif;   
+	font-weight:300;
+	font-size:18px;
+	color:rgba(130,130,130,0.8);
+	margin-bottom:20px;
+}
+
+.box{
+	padding:10px;
+	border-radius:3px;
+	color:white;
+	font-size:12px;
+	/*margin-top:-10px;*/
+	text-align:center;
+	display:none;
+}
+
+.error-box{
+	background-color:rgba(230,80,80,1);
+}
+
+.success-box{
+	background-color: rgba(80,230,80,1);
+}
+
+.password-suggestion{
+	display:none;
+	border:1px solid rgba(240,140,140,0.6);
+	margin-top:5px;
+	font-size:12px;
+	color:rgb(230,80,80);
+	padding:10px;
+	border-radius:3px;
+}
+
+.form-group {
+	background-color:white;
+	margin-top:10px;	
+}
+
+.form-group label {
+	display: inline-block;
+	font-size:12px;
+}
+.form-group input {
+	width:258px; /* form-width - 2(padding) - 20(padding) */
+	height:40px;
+	line-height:40px;
+	background-color:white;
+	border-radius:3px;
+	border:1px solid rgba(120,120,120,0.2);
+	margin-top:5px;
+	padding-left:10px;
+	padding-right:10px;
+	color: rgb(30,30,30);
+	font-size:14px;
+	outline:0px;
+}
+
+.form-group input:focus {
+	border:1px solid rgba(120,120,120,0.6);
+}
+
+.form-button{
+	width:180px;
+	margin:0px auto;
+	margin-top:30px;
+}
+
+.form-button button{
+	height:40px;
+	width:100%;
+	cursor:pointer;
+	font-family: 'Roboto', sans-serif; 
+	font-weight:500; 
+	letter-spacing:1px;
+	background-color: #02b3e4;
+	border:0px;
+	border-radius:4px;
+	color:white;
+	outline:none;
+}
+
+.form-button input:hover{
+	background-color:#148bb1;
+}
